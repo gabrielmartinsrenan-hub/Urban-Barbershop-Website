@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE CUT CLUB // Urban Barbershop & Culture</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#145CFF',
+                        brandYellow: '#FFD600',
+                        brandDark: '#111111',
+                        brandCard: '#1A1A1A',
+                        brandBorder: '#2A2A2A',
+                    },
+                    fontFamily: {
+                        bebas: ['"Bebas Neue"', 'sans-serif'],
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 20px rgba(20, 92, 255, 0.4)',
+                        'neon-yellow': '0 0 20px rgba(255, 214, 0, 0.4)',
+                        'sharp-yellow': '6px 6px 0px #FFD600',
+                        'sharp-blue': '6px 6px 0px #145CFF',
+                        'sharp-white': '6px 6px 0px #FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #145CFF;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFD600;
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 20s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Grid Pattern Overlay */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(20, 92, 255, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-white font-sans selection:bg-brandYellow selection:text-black overflow-x-hidden">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brandYellow text-black py-1.5 px-4 text-xs font-bold uppercase tracking-widest overflow-hidden border-b border-black">
+        <div class="animate-marquee whitespace-nowrap flex items-center gap-8">
+            <span>⚡ FRESH FADES • SHARP BEARDS • URBAN CULTURE • HOT TOWEL SHAVES</span>
+            <span>⚡ WALK-INS WELCOME DAILY IN SOHO, NYC</span>
+            <span>⚡ GET 10% OFF YOUR FIRST ORDER WITH CODE: FIRSTCUT</span>
+            <span>⚡ FRESH FADES • SHARP BEARDS • URBAN CULTURE • HOT TOWEL SHAVES</span>
+            <span>⚡ WALK-INS WELCOME DAILY IN SOHO, NYC</span>
+            <span>⚡ GET 10% OFF YOUR FIRST ORDER WITH CODE: FIRSTCUT</span>
+        </div>
+    </div>
+
+    <!-- MAIN STICKY NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-brandDark/90 backdrop-blur-md border-b border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="bg-brandBlue text-white p-2 font-bebas text-2xl group-hover:bg-brandYellow group-hover:text-black transition-colors duration-300 transform -skew-x-12">
+                    TC
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bebas text-2xl sm:text-3xl tracking-wider leading-none">THE CUT CLUB</span>
+                    <span class="text-[10px] tracking-[0.2em] text-brandYellow uppercase font-semibold">Urban Barbershop // NYC</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wider uppercase">
+                <a href="#hero" class="hover:text-brandYellow transition-colors">Home</a>
+                <a href="#builder" class="text-brandYellow flex items-center gap-1.5 hover:brightness-110">
+                    <i class="fa-solid fa-scissors"></i> Customizer
+                </a>
+                <a href="#services" class="hover:text-brandYellow transition-colors">Services</a>
+                <a href="#barbers" class="hover:text-brandYellow transition-colors">Barbers</a>
+                <a href="#gallery" class="hover:text-brandYellow transition-colors">Gallery</a>
+                <a href="#reviews" class="hover:text-brandYellow transition-colors">Reviews</a>
+                <a href="#location" class="hover:text-brandYellow transition-colors">Location</a>
+            </nav>
+
+            <!-- Header CTA & Status -->
+            <div class="hidden lg:flex items-center gap-4">
+                <div id="header-status-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 border border-green-500/30 bg-green-500/10 text-green-400">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                    <span>OPEN NOW</span>
+                </div>
+                <a href="#builder" class="bg-brandYellow hover:bg-yellow-400 text-black font-bebas text-xl px-6 py-2.5 uppercase tracking-wider transform -skew-x-6 hover:skew-x-0 transition-all duration-200 shadow-sharp-blue active:translate-x-1 active:translate-y-1">
+                    BUILD YOUR CUT
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-white focus:outline-none p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brandCard border-b border-brandBorder px-6 py-6 flex flex-col gap-4 uppercase font-semibold text-sm">
+            <a href="#hero" class="mobile-link hover:text-brandYellow">Home</a>
+            <a href="#builder" class="mobile-link text-brandYellow flex items-center gap-2">
+                <i class="fa-solid fa-scissors"></i> Build Your Cut (Order Builder)
+            </a>
+            <a href="#services" class="mobile-link hover:text-brandYellow">Services & Pricing</a>
+            <a href="#barbers" class="mobile-link hover:text-brandYellow">Master Barbers</a>
+            <a href="#gallery" class="mobile-link hover:text-brandYellow">Culture Gallery</a>
+            <a href="#reviews" class="mobile-link hover:text-brandYellow">Reviews</a>
+            <a href="#location" class="mobile-link hover:text-brandYellow">Location & Hours</a>
+            <a href="#builder" class="mobile-link bg-brandYellow text-black font-bebas text-center py-3 text-xl tracking-wider mt-2">
+                BUILD YOUR CUT NOW
+            </a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="relative min-h-[calc(100vh-5rem)] flex items-center bg-grid-pattern overflow-hidden py-12 lg:py-20">
+        <!-- Background Accent Blurs -->
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brandBlue/30 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-0 w-96 h-96 bg-brandYellow/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Text Column -->
+            <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+                <!-- Tag -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-brandBlue/10 border border-brandBlue text-brandBlue font-mono text-xs uppercase tracking-widest font-bold">
+                    <i class="fa-solid fa-bolt text-brandYellow"></i> Streetwear Aesthetics • Barbering Excellence
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="font-bebas text-6xl sm:text-7xl lg:text-8xl xl:text-9xl leading-[0.88] tracking-tight uppercase">
+                    YOUR STYLE.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandYellow via-white to-brandBlue">
+                        YOUR RULES.
+                    </span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-gray-300 text-lg sm:text-xl max-w-xl font-normal leading-relaxed">
+                    Premium cuts. Sharp fades. Zero compromises. Step into Soho’s premier urban barber lounge where hip-hop culture meets world-class razor precision.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
+                    <a href="#builder" class="bg-brandYellow hover:bg-yellow-300 text-black font-bebas text-2xl px-8 py-4 text-center tracking-wider uppercase transition-all transform hover:-translate-y-1 shadow-sharp-blue">
+                        BUILD YOUR CUT <i class="fa-solid fa-arrow-right ml-2 text-lg"></i>
+                    </a>
+                    <a href="#services" class="border-2 border-white hover:border-brandYellow hover:text-brandYellow font-bebas text-2xl px-8 py-4 text-center tracking-wider uppercase transition-all">
+                        EXPLORE SERVICES
+                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full border-t border-brandBorder/80">
+                    <div>
+                        <div class="text-brandYellow font-bebas text-3xl">4.9 ★</div>
+                        <div class="text-xs text-gray-400 font-medium uppercase">1,200+ Reviews</div>
+                    </div>
+                    <div>
+                        <div class="text-white font-bebas text-3xl">MASTER</div>
+                        <div class="text-xs text-gray-400 font-medium uppercase">Licensed Barbers</div>
+                    </div>
+                    <div>
+                        <div class="text-brandBlue font-bebas text-3xl">NYC VIBE</div>
+                        <div class="text-xs text-gray-400 font-medium uppercase">PS5 & Lounge Bar</div>
+                    </div>
+                    <div>
+                        <div class="text-white font-bebas text-3xl">WALK-INS</div>
+                        <div class="text-xs text-gray-400 font-medium uppercase">Welcome Daily</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image Showcase -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto max-w-md lg:max-w-none">
+                    <!-- Geometric Frame Effects -->
+                    <div class="absolute -inset-4 border-2 border-brandBlue/40 translate-x-3 translate-y-3 pointer-events-none"></div>
+                    <div class="absolute -inset-4 border-2 border-brandYellow/40 -translate-x-3 -translate-y-3 pointer-events-none"></div>
+                    
+                    <!-- Main Hero Image -->
+                    <div class="relative overflow-hidden border-2 border-brandBorder bg-brandCard shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Urban Barber at work" 
+                             class="w-full h-[480px] sm:h-[560px] object-cover object-center filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+
+                        <!-- Badge on image -->
+                        <div class="absolute bottom-6 left-6 right-6 p-4 glass-panel border-l-4 border-brandYellow">
+                            <p class="font-bebas text-xl text-brandYellow tracking-wide">SIGNATURE FADE & BEARD SCULPT</p>
+                            <p class="text-xs text-gray-300 font-mono">By Alex "The Fade God" • Soho Shop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE ORDER BUILDER -->
+    <section id="builder" class="py-20 bg-black relative border-t border-b border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block bg-brandYellow text-black font-bebas text-lg px-4 py-1 uppercase tracking-widest mb-3 transform -skew-x-12">
+                    CUSTOMIZATION LAB
+                </div>
+                <h2 class="font-bebas text-5xl sm:text-6xl tracking-tight uppercase">
+                    BUILD YOUR <span class="text-brandBlue">CUSTOM CUT</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-2">
+                    Customize every detail of your appointment. Pick your style, beard sculpting, add-ons, barber, and preferred time slot.
+                </p>
+            </div>
+
+            <!-- Builder Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left: Interactive Steps (Cols 8) -->
+                <div class="lg:col-span-8 space-y-10">
+
+                    <!-- STEP 1: HAIRSTYLE -->
+                    <div class="bg-brandCard p-6 sm:p-8 border border-brandBorder relative">
+                        <div class="flex items-center justify-between border-b border-brandBorder pb-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-none bg-brandBlue text-white font-bebas text-xl flex items-center justify-center">01</span>
+                                <h3 class="font-bebas text-2xl tracking-wide uppercase text-white">SELECT HAIRSTYLE / CUT</h3>
+                            </div>
+                            <span class="text-xs text-brandYellow font-mono uppercase">* Required</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="haircut-options">
+                            <!-- JS Inject or static preset structure -->
+                            <div onclick="selectHaircut('skin-fade', 'Skin Fade & Taper', 45, '30 mins')" class="option-card haircut-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="skin-fade">
+                                <div class="font-bebas text-xl text-white">SKIN FADE & TAPER</div>
+                                <div class="text-xs text-gray-400 my-1">Seamless blend from zero down to skin. Clean foil finish.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">$45</span>
+                                    <span class="text-gray-400 text-xs"><i class="fa-regular fa-clock"></i> 30m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectHaircut('textured-crop', 'Textured Crop & Fringe', 40, '30 mins')" class="option-card haircut-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="textured-crop">
+                                <div class="font-bebas text-xl text-white">TEXTURED CROP</div>
+                                <div class="text-xs text-gray-400 my-1">Modern French crop with choppy top texture & blunt fringe.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">$40</span>
+                                    <span class="text-gray-400 text-xs"><i class="fa-regular fa-clock"></i> 30m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectHaircut('classic-pompadour', 'Executive Pompadour', 45, '35 mins')" class="option-card haircut-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="classic-pompadour">
+                                <div class="font-bebas text-xl text-white">EXECUTIVE POMPADOUR</div>
+                                <div class="text-xs text-gray-400 my-1">Classic side part, scissor work top with crisp tailored sides.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">$45</span>
+                                    <span class="text-gray-400 text-xs"><i class="fa-regular fa-clock"></i> 35m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectHaircut('buzz-design', 'Buzz Cut + Hair Art', 50, '40 mins')" class="option-card haircut-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="buzz-design">
+                                <div class="font-bebas text-xl text-white">BUZZ CUT + DESIGN</div>
+                                <div class="text-xs text-gray-400 my-1">Uniform buzz with custom sharp hair lines or freestyle logo design.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">$50</span>
+                                    <span class="text-gray-400 text-xs"><i class="fa-regular fa-clock"></i> 40m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectHaircut('slick-back', 'Slick Back Undercut', 42, '30 mins')" class="option-card haircut-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="slick-back">
+                                <div class="font-bebas text-xl text-white">SLICK BACK UNDERCUT</div>
+                                <div class="text-xs text-gray-400 my-1">High contrast sharp disconnect with slick high-shine top finish.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">$42</span>
+                                    <span class="text-gray-400 text-xs"><i class="fa-regular fa-clock"></i> 30m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectHaircut('buzz-basic', 'Clean Buzz Cut', 30, '20 mins')" class="option-card haircut-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="buzz-basic">
+                                <div class="font-bebas text-xl text-white">CLEAN BUZZ CUT</div>
+                                <div class="text-xs text-gray-400 my-1">Single guard all over with ultra-sharp hairline razor touchup.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">$30</span>
+                                    <span class="text-gray-400 text-xs"><i class="fa-regular fa-clock"></i> 20m</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: BEARD & GROOMING -->
+                    <div class="bg-brandCard p-6 sm:p-8 border border-brandBorder">
+                        <div class="flex items-center justify-between border-b border-brandBorder pb-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-none bg-brandBlue text-white font-bebas text-xl flex items-center justify-center">02</span>
+                                <h3 class="font-bebas text-2xl tracking-wide uppercase text-white">BEARD & FACIAL GROOMING</h3>
+                            </div>
+                            <span class="text-xs text-gray-400 font-mono uppercase">Optional</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="beard-options">
+                            <div onclick="selectBeard('no-beard', 'No Beard Service', 0, '0 mins')" class="option-card beard-item cursor-pointer p-4 bg-brandDark border-2 border-brandYellow transition-all relative active-selected" data-id="no-beard">
+                                <div class="font-bebas text-xl text-white">NO BEARD SERVICE</div>
+                                <div class="text-xs text-gray-400 my-1">Haircut only. Skip beard grooming step.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">$0</span>
+                                    <span class="text-gray-400 text-xs">0m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectBeard('crisp-lineup', 'Crisp Line-Up', 15, '15 mins')" class="option-card beard-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="crisp-lineup">
+                                <div class="font-bebas text-xl text-white">CRISP LINE-UP</div>
+                                <div class="text-xs text-gray-400 my-1">Straight-edge razor cheek & neck outline sharpening.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">+$15</span>
+                                    <span class="text-gray-400 text-xs">15m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectBeard('beard-sculpt', 'Full Beard Sculpt', 25, '20 mins')" class="option-card beard-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="beard-sculpt">
+                                <div class="font-bebas text-xl text-white">FULL BEARD SCULPT</div>
+                                <div class="text-xs text-gray-400 my-1">Length trim, shape fading, razor lineup + moisturizing balm.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">+$25</span>
+                                    <span class="text-gray-400 text-xs">20m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectBeard('hot-towel-shave', 'Royal Hot Towel Shave', 30, '25 mins')" class="option-card beard-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="hot-towel-shave">
+                                <div class="font-bebas text-xl text-white">HOT TOWEL SHAVE</div>
+                                <div class="text-xs text-gray-400 my-1">Essential oil hot towel, warm lather, straight razor finish.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">+$30</span>
+                                    <span class="text-gray-400 text-xs">25m</span>
+                                </div>
+                            </div>
+
+                            <div onclick="selectBeard('charcoal-mask', 'Charcoal Detox Mask', 20, '15 mins')" class="option-card beard-item cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandYellow transition-all relative group" data-id="charcoal-mask">
+                                <div class="font-bebas text-xl text-white">CHARCOAL FACE MASK</div>
+                                <div class="text-xs text-gray-400 my-1">Deep pore charcoal peel to remove blackheads & soften skin.</div>
+                                <div class="flex justify-between items-center mt-3 pt-2 border-t border-brandBorder/50 font-mono text-sm">
+                                    <span class="text-brandYellow font-bold">+$20</span>
+                                    <span class="text-gray-400 text-xs">15m</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: ADD-ONS & TREATMENTS -->
+                    <div class="bg-brandCard p-6 sm:p-8 border border-brandBorder">
+                        <div class="flex items-center justify-between border-b border-brandBorder pb-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-none bg-brandBlue text-white font-bebas text-xl flex items-center justify-center">03</span>
+                                <h3 class="font-bebas text-2xl tracking-wide uppercase text-white">VIP ADD-ONS & TREATMENTS</h3>
+                            </div>
+                            <span class="text-xs text-gray-400 font-mono uppercase">Multi-select</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <label class="cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandBlue flex items-start gap-3 transition-all">
+                                <input type="checkbox" onchange="toggleAddon('color-enhancement', 'Color / Line Enhancement', 15, '10 mins', this)" class="mt-1 w-5 h-5 accent-brandYellow rounded-none">
+                                <div class="flex-1">
+                                    <div class="font-bebas text-lg text-white">COLOR / LINE ENHANCEMENT (+$15)</div>
+                                    <div class="text-xs text-gray-400">Airbrush semi-permanent hair color to sharpen hair lines.</div>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandBlue flex items-start gap-3 transition-all">
+                                <input type="checkbox" onchange="toggleAddon('scalp-detox', 'Scalp Scrub & Wash', 15, '10 mins', this)" class="mt-1 w-5 h-5 accent-brandYellow rounded-none">
+                                <div class="flex-1">
+                                    <div class="font-bebas text-lg text-white">SCALP SCRUB & MASSAGE (+$15)</div>
+                                    <div class="text-xs text-gray-400">Exfoliating tea tree scalp wash with relaxing head massage.</div>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandBlue flex items-start gap-3 transition-all">
+                                <input type="checkbox" onchange="toggleAddon('matte-clay', 'Matte Clay Styling Take-Home', 22, '0 mins', this)" class="mt-1 w-5 h-5 accent-brandYellow rounded-none">
+                                <div class="flex-1">
+                                    <div class="font-bebas text-lg text-white">TAKE-HOME MATTE CLAY POMADE (+$22)</div>
+                                    <div class="text-xs text-gray-400">Our signature Cut Club strong hold matte finish pomade.</div>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer p-4 bg-brandDark border-2 border-brandBorder hover:border-brandBlue flex items-start gap-3 transition-all">
+                                <input type="checkbox" onchange="toggleAddon('black-mask-gold', '24K Gold Eyepatch Mask', 12, '10 mins', this)" class="mt-1 w-5 h-5 accent-brandYellow rounded-none">
+                                <div class="flex-1">
+                                    <div class="font-bebas text-lg text-white">24K GOLD EYE HYDRATION (+$12)</div>
+                                    <div class="text-xs text-gray-400">Under-eye soothing patch to reduce fatigue during your cut.</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: CHOOSE BARBER & TIME -->
+                    <div class="bg-brandCard p-6 sm:p-8 border border-brandBorder">
+                        <div class="flex items-center justify-between border-b border-brandBorder pb-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-none bg-brandBlue text-white font-bebas text-xl flex items-center justify-center">04</span>
+                                <h3 class="font-bebas text-2xl tracking-wide uppercase text-white">BARBER & SCHEDULE</h3>
+                            </div>
+                            <span class="text-xs text-brandYellow font-mono uppercase">* Required</span>
+                        </div>
+
+                        <!-- Barber Selection Grid -->
+                        <div class="mb-8">
+                            <label class="block text-xs font-mono text-gray-400 uppercase mb-3">Pick Master Barber:</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="barber-options">
+                                <div onclick="selectBarber('any', 'First Available Barber')" class="barber-item cursor-pointer p-3 bg-brandDark border-2 border-brandYellow text-center hover:border-brandYellow transition-all active-selected" data-id="any">
+                                    <div class="w-12 h-12 rounded-full bg-brandBlue/30 border border-brandBlue mx-auto flex items-center justify-center font-bebas text-xl text-brandYellow mb-2">ANY</div>
+                                    <div class="font-bebas text-base leading-tight">FIRST AVAILABLE</div>
+                                    <div class="text-[10px] text-gray-400">Fastest Spot</div>
+                                </div>
+
+                                <div onclick="selectBarber('alex', 'Alex The Fade God')" class="barber-item cursor-pointer p-3 bg-brandDark border-2 border-brandBorder text-center hover:border-brandYellow transition-all" data-id="alex">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="w-12 h-12 rounded-full object-cover mx-auto mb-2 border border-brandYellow">
+                                    <div class="font-bebas text-base leading-tight">ALEX "FADE GOD"</div>
+                                    <div class="text-[10px] text-gray-400">Skin Fades Specialist</div>
+                                </div>
+
+                                <div onclick="selectBarber('marcus', 'Marcus Blade Vance')" class="barber-item cursor-pointer p-3 bg-brandDark border-2 border-brandBorder text-center hover:border-brandYellow transition-all" data-id="marcus">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" class="w-12 h-12 rounded-full object-cover mx-auto mb-2 border border-brandBlue">
+                                    <div class="font-bebas text-base leading-tight">MARCUS "BLADE"</div>
+                                    <div class="text-[10px] text-gray-400">Razor & Beard Sculpt</div>
+                                </div>
+
+                                <div onclick="selectBarber('leo', 'Leo Precision Chen')" class="barber-item cursor-pointer p-3 bg-brandDark border-2 border-brandBorder text-center hover:border-brandYellow transition-all" data-id="leo">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" class="w-12 h-12 rounded-full object-cover mx-auto mb-2 border border-brandYellow">
+                                    <div class="font-bebas text-base leading-tight">LEO "PRECISION"</div>
+                                    <div class="text-[10px] text-gray-400">Hair Art & Color</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Date & Time Slots -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-mono text-gray-400 uppercase mb-2">Select Date:</label>
+                                <input type="date" id="booking-date" class="w-full bg-brandDark border-2 border-brandBorder text-white px-4 py-2.5 font-mono text-sm focus:border-brandYellow focus:outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-gray-400 uppercase mb-2">Available Slot:</label>
+                                <select id="booking-time" class="w-full bg-brandDark border-2 border-brandBorder text-white px-4 py-2.5 font-mono text-sm focus:border-brandYellow focus:outline-none">
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="12:30 PM">12:30 PM</option>
+                                    <option value="02:00 PM" selected>02:00 PM</option>
+                                    <option value="03:30 PM">03:30 PM</option>
+                                    <option value="05:00 PM">05:00 PM</option>
+                                    <option value="06:30 PM">06:30 PM</option>
+                                    <option value="07:15 PM">07:15 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Live Summary Card & Booking Form (Cols 4 Sticky) -->
+                <div class="lg:col-span-4 lg:sticky lg:top-24">
+                    <div class="bg-brandCard border-2 border-brandYellow p-6 shadow-neon-yellow">
+                        
+                        <div class="flex items-center justify-between border-b border-brandBorder pb-4 mb-4">
+                            <span class="font-bebas text-2xl text-brandYellow tracking-wider">CUT SUMMARY</span>
+                            <span class="text-xs font-mono bg-brandBlue text-white px-2 py-0.5 uppercase">Live Total</span>
+                        </div>
+
+                        <!-- Selected Items List -->
+                        <div class="space-y-3 font-mono text-xs border-b border-brandBorder pb-4 mb-4 min-h-[140px]" id="summary-list">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <!-- Time & Barber Meta -->
+                        <div class="space-y-2 text-xs font-mono text-gray-300 bg-brandDark p-3 mb-6 border border-brandBorder">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Est. Duration:</span>
+                                <span id="summary-duration" class="text-brandYellow font-bold">30 mins</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Barber:</span>
+                                <span id="summary-barber" class="text-white font-bold">First Available</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Date/Time:</span>
+                                <span id="summary-datetime" class="text-white font-bold">Today @ 2:00 PM</span>
+                            </div>
+                        </div>
+
+                        <!-- Price Total -->
+                        <div class="flex justify-between items-baseline mb-6 border-b border-brandBorder pb-4">
+                            <span class="font-bebas text-2xl text-white">TOTAL DUE:</span>
+                            <span id="summary-price" class="font-bebas text-4xl text-brandYellow">$45</span>
+                        </div>
+
+                        <!-- Booking Input Fields -->
+                        <form id="order-form" onsubmit="handleBookingSubmit(event)" class="space-y-3">
+                            <div>
+                                <label class="block text-[10px] font-mono text-gray-400 uppercase mb-1">Your Full Name *</label>
+                                <input type="text" id="client-name" required placeholder="e.g. Jordan Carter" class="w-full bg-brandDark border border-brandBorder text-white px-3 py-2 text-xs font-sans focus:border-brandYellow focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-mono text-gray-400 uppercase mb-1">Phone Number (WhatsApp/SMS) *</label>
+                                <input type="tel" id="client-phone" required placeholder="(555) 019-2834" class="w-full bg-brandDark border border-brandBorder text-white px-3 py-2 text-xs font-sans focus:border-brandYellow focus:outline-none">
+                            </div>
+
+                            <button type="submit" class="w-full bg-brandYellow hover:bg-yellow-300 text-black font-bebas text-2xl py-3.5 tracking-wider uppercase transition-all shadow-sharp-blue transform hover:-translate-y-0.5 active:translate-y-0">
+                                CONFIRM BOOKING NOW
+                            </button>
+                        </form>
+
+                        <p class="text-[10px] text-gray-400 text-center mt-3">
+                            <i class="fa-solid fa-lock text-brandYellow"></i> Instant confirmation. Pay at shop after service.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: SERVICES & MENU PRICING -->
+    <section id="services" class="py-20 bg-brandDark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brandBlue font-mono text-xs uppercase tracking-widest font-bold">// THE MENU</span>
+                    <h2 class="font-bebas text-5xl sm:text-6xl tracking-tight uppercase mt-1">
+                        SERVICES & <span class="text-brandYellow">PRICING</span>
+                    </h2>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="flex flex-wrap gap-2 mt-4 md:mt-0 font-bebas text-lg">
+                    <button onclick="filterMenu('all')" class="menu-tab bg-brandYellow text-black px-4 py-1.5 uppercase transition-all" data-tab="all">ALL SERVICES</button>
+                    <button onclick="filterMenu('cuts')" class="menu-tab bg-brandCard border border-brandBorder text-gray-300 hover:text-white px-4 py-1.5 uppercase transition-all" data-tab="cuts">CUTS</button>
+                    <button onclick="filterMenu('beard')" class="menu-tab bg-brandCard border border-brandBorder text-gray-300 hover:text-white px-4 py-1.5 uppercase transition-all" data-tab="beard">BEARD & SHAVE</button>
+                    <button onclick="filterMenu('combos')" class="menu-tab bg-brandCard border border-brandBorder text-gray-300 hover:text-white px-4 py-1.5 uppercase transition-all" data-tab="combos">VIP COMBOS</button>
+                </div>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="menu-container">
+                
+                <!-- Item 1 -->
+                <div class="menu-card cuts bg-brandCard p-6 border border-brandBorder hover:border-brandBlue transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bebas text-2xl text-white group-hover:text-brandYellow transition-colors">THE SIGNATURE FADE</h3>
+                            <span class="font-bebas text-2xl text-brandYellow">$45</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Precision skin fade or drop taper with razor edge finishing and pomade styling.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-brandBorder/60">
+                        <span class="text-[11px] font-mono text-gray-400"><i class="fa-regular fa-clock"></i> 30 mins</span>
+                        <a href="#builder" onclick="presetHaircut('skin-fade')" class="text-xs font-bold text-brandBlue hover:text-white uppercase tracking-wider flex items-center gap-1">
+                            Add To Builder <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-card cuts bg-brandCard p-6 border border-brandBorder hover:border-brandBlue transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bebas text-2xl text-white group-hover:text-brandYellow transition-colors">TEXTURED CROP & FRINGE</h3>
+                            <span class="font-bebas text-2xl text-brandYellow">$40</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Modern urban forward crop with heavy texture top and clean skin low fade.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-brandBorder/60">
+                        <span class="text-[11px] font-mono text-gray-400"><i class="fa-regular fa-clock"></i> 30 mins</span>
+                        <a href="#builder" onclick="presetHaircut('textured-crop')" class="text-xs font-bold text-brandBlue hover:text-white uppercase tracking-wider flex items-center gap-1">
+                            Add To Builder <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-card beard bg-brandCard p-6 border border-brandBorder hover:border-brandBlue transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bebas text-2xl text-white group-hover:text-brandYellow transition-colors">ROYAL HOT TOWEL SHAVE</h3>
+                            <span class="font-bebas text-2xl text-brandYellow">$35</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Multi-towel essential oil steam, rich lather, double razor shave & aftershave cooling.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-brandBorder/60">
+                        <span class="text-[11px] font-mono text-gray-400"><i class="fa-regular fa-clock"></i> 30 mins</span>
+                        <a href="#builder" onclick="presetBeard('hot-towel-shave')" class="text-xs font-bold text-brandBlue hover:text-white uppercase tracking-wider flex items-center gap-1">
+                            Add To Builder <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="menu-card beard bg-brandCard p-6 border border-brandBorder hover:border-brandBlue transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bebas text-2xl text-white group-hover:text-brandYellow transition-colors">BEARD SCULPT & LINE-UP</h3>
+                            <span class="font-bebas text-2xl text-brandYellow">$30</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Complete beard length trim, shape blending, crisp straight razor cheek line alignment.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-brandBorder/60">
+                        <span class="text-[11px] font-mono text-gray-400"><i class="fa-regular fa-clock"></i> 20 mins</span>
+                        <a href="#builder" onclick="presetBeard('beard-sculpt')" class="text-xs font-bold text-brandBlue hover:text-white uppercase tracking-wider flex items-center gap-1">
+                            Add To Builder <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="menu-card combos bg-brandCard p-6 border-2 border-brandYellow hover:border-brandYellow transition-all flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brandYellow text-black text-[10px] font-bold font-mono px-3 py-1 uppercase">
+                        MOST POPULAR
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-2 mt-2">
+                            <h3 class="font-bebas text-2xl text-white group-hover:text-brandYellow transition-colors">THE FULL CUT CLUB VIP</h3>
+                            <span class="font-bebas text-3xl text-brandYellow">$75</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Signature Haircut + Full Beard Sculpting + Hot Towel Treatment + Hair Wash & Scalp Massage.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-brandBorder/60">
+                        <span class="text-[11px] font-mono text-gray-400"><i class="fa-regular fa-clock"></i> 55 mins</span>
+                        <a href="#builder" class="text-xs font-bold text-black bg-brandYellow px-3 py-1 uppercase tracking-wider hover:bg-white transition-colors">
+                            BOOK VIP
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="menu-card combos bg-brandCard p-6 border border-brandBorder hover:border-brandBlue transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bebas text-2xl text-white group-hover:text-brandYellow transition-colors">FATHER & SON DYNAMIC DUO</h3>
+                            <span class="font-bebas text-2xl text-brandYellow">$70</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Two haircuts side-by-side with two master barbers + complimentary lounge drinks.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-brandBorder/60">
+                        <span class="text-[11px] font-mono text-gray-400"><i class="fa-regular fa-clock"></i> 45 mins</span>
+                        <a href="#builder" class="text-xs font-bold text-brandBlue hover:text-white uppercase tracking-wider flex items-center gap-1">
+                            Add To Builder <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: MEET THE TEAM / MASTER BARBERS -->
+    <section id="barbers" class="py-20 bg-black border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brandYellow font-mono text-xs uppercase tracking-widest font-bold">// CRAFTSMEN</span>
+                <h2 class="font-bebas text-5xl sm:text-6xl tracking-tight uppercase mt-1">
+                    MEET THE <span class="text-brandBlue">MASTER BARBERS</span>
+                </h2>
+                <p class="text-gray-400 text-sm mt-2">Licensed artists with decades of combined experience in urban precision barbering.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Barber 1 -->
+                <div class="bg-brandCard border border-brandBorder group hover:border-brandYellow transition-all duration-300">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
+                             alt="Alex Fade God" 
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute bottom-3 left-3 bg-brandYellow text-black font-mono text-[10px] font-bold px-2.5 py-1 uppercase">
+                            10+ YRS EXPERIENCE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bebas text-3xl text-white">ALEX "THE FADE GOD"</h3>
+                            <a href="https://instagram.com" target="_blank" class="text-brandYellow text-sm hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                        <p class="text-xs text-brandBlue font-mono uppercase mb-3">Specialty: Skin Fades & Freestyle Lines</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Trained in London and NYC, Alex is known for razor-sharp skin drop fades and celebrity styling.</p>
+                        <a href="#builder" onclick="selectBarber('alex', 'Alex The Fade God')" class="inline-block w-full text-center bg-brandDark border border-brandBorder hover:border-brandYellow text-white font-bebas text-xl py-2 tracking-wider uppercase transition-colors">
+                            BOOK WITH ALEX
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Barber 2 -->
+                <div class="bg-brandCard border border-brandBorder group hover:border-brandYellow transition-all duration-300">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
+                             alt="Marcus Vance" 
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute bottom-3 left-3 bg-brandYellow text-black font-mono text-[10px] font-bold px-2.5 py-1 uppercase">
+                            8 YRS EXPERIENCE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bebas text-3xl text-white">MARCUS "BLADE" VANCE</h3>
+                            <a href="https://instagram.com" target="_blank" class="text-brandYellow text-sm hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                        <p class="text-xs text-brandBlue font-mono uppercase mb-3">Specialty: Traditional Razor & Beard Sculpting</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Master of straight-razor hot towel shaves and full beard transformations with precise detailing.</p>
+                        <a href="#builder" onclick="selectBarber('marcus', 'Marcus Blade Vance')" class="inline-block w-full text-center bg-brandDark border border-brandBorder hover:border-brandYellow text-white font-bebas text-xl py-2 tracking-wider uppercase transition-colors">
+                            BOOK WITH MARCUS
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Barber 3 -->
+                <div class="bg-brandCard border border-brandBorder group hover:border-brandYellow transition-all duration-300">
+                    <div class="relative overflow-hidden h-80">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" 
+                             alt="Leo Chen" 
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute bottom-3 left-3 bg-brandYellow text-black font-mono text-[10px] font-bold px-2.5 py-1 uppercase">
+                            7 YRS EXPERIENCE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bebas text-3xl text-white">LEO "PRECISION" CHEN</h3>
+                            <a href="https://instagram.com" target="_blank" class="text-brandYellow text-sm hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                        <p class="text-xs text-brandBlue font-mono uppercase mb-3">Specialty: Textured Crops & Color Art</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Combining street style trends with geometric hairline precision and creative color dyes.</p>
+                        <a href="#builder" onclick="selectBarber('leo', 'Leo Precision Chen')" class="inline-block w-full text-center bg-brandDark border border-brandBorder hover:border-brandYellow text-white font-bebas text-xl py-2 tracking-wider uppercase transition-colors">
+                            BOOK WITH LEO
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: GALLERY & CULTURE -->
+    <section id="gallery" class="py-20 bg-brandDark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brandBlue font-mono text-xs uppercase tracking-widest font-bold">// WORK SHOWCASE</span>
+                <h2 class="font-bebas text-5xl sm:text-6xl tracking-tight uppercase mt-1">
+                    FRESH CUTS & <span class="text-brandYellow">CULTURE VIBES</span>
+                </h2>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery-grid">
+                
+                <div class="relative overflow-hidden group cursor-pointer h-64 border border-brandBorder" onclick="openLightbox('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1200&q=80', 'Skin Fade Sharp Finish')">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    <div class="absolute inset-0 bg-brandBlue/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+                        <div>
+                            <p class="font-bebas text-2xl text-white">SKIN FADE & BEARD</p>
+                            <p class="text-xs font-mono text-brandYellow">Click to zoom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden group cursor-pointer h-64 border border-brandBorder" onclick="openLightbox('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80', 'Razor Beard Detailing')">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    <div class="absolute inset-0 bg-brandBlue/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+                        <div>
+                            <p class="font-bebas text-2xl text-white">RAZOR DETAILED BEARD</p>
+                            <p class="text-xs font-mono text-brandYellow">Click to zoom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden group cursor-pointer h-64 border border-brandBorder" onclick="openLightbox('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=80', 'Shop Lounge Culture')">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    <div class="absolute inset-0 bg-brandBlue/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+                        <div>
+                            <p class="font-bebas text-2xl text-white">LOUNGE & MUSIC VIBES</p>
+                            <p class="text-xs font-mono text-brandYellow">Click to zoom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden group cursor-pointer h-64 border border-brandBorder" onclick="openLightbox('https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=1200&q=80', 'Hot Towel Treatment')">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    <div class="absolute inset-0 bg-brandBlue/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+                        <div>
+                            <p class="font-bebas text-2xl text-white">HOT TOWEL STEAM</p>
+                            <p class="text-xs font-mono text-brandYellow">Click to zoom</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 hidden">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brandYellow">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full text-center">
+            <img id="lightbox-img" src="" class="max-h-[80vh] mx-auto border-2 border-brandYellow object-contain">
+            <p id="lightbox-caption" class="font-bebas text-2xl text-brandYellow mt-4 tracking-wider"></p>
+        </div>
+    </div>
+
+    <!-- SECTION 6: REVIEWS & COMMUNITY -->
+    <section id="reviews" class="py-20 bg-black border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brandYellow font-mono text-xs uppercase tracking-widest font-bold">// CLIENT TESTIMONIALS</span>
+                <h2 class="font-bebas text-5xl sm:text-6xl tracking-tight uppercase mt-1">
+                    VERIFIED <span class="text-brandBlue">STREET TALK</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="bg-brandCard p-6 border border-brandBorder relative">
+                    <div class="text-brandYellow text-sm space-x-1 mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic leading-relaxed mb-6">
+                        "Hands down the cleanest fade in New York. Alex had my hairline razor sharp before my music video shoot. The hip-hop playlist and craft beers make the vibe unmatched."
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-brandBorder/60 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brandBlue text-white font-bebas text-xl flex items-center justify-center">JD</div>
+                        <div>
+                            <div class="font-bebas text-lg text-white leading-none">JAYLEN D.</div>
+                            <div class="text-[10px] text-gray-400 font-mono">SoHo, NYC • Verified Client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brandCard p-6 border border-brandBorder relative">
+                    <div class="text-brandYellow text-sm space-x-1 mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic leading-relaxed mb-6">
+                        "The online Order Builder made it so easy to customize my full cut and beard sculpt. Arrived, stepped right into Marcus' chair, no waiting. True 5-star service."
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-brandBorder/60 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brandYellow text-black font-bebas text-xl flex items-center justify-center">TM</div>
+                        <div>
+                            <div class="font-bebas text-lg text-white leading-none">TYRONE M.</div>
+                            <div class="text-[10px] text-gray-400 font-mono">Brooklyn, NYC • Verified Client</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brandCard p-6 border border-brandBorder relative">
+                    <div class="text-brandYellow text-sm space-x-1 mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic leading-relaxed mb-6">
+                        "Took my son here for his back-to-school haircut. Leo is a genius with hair art patterns. Atmosphere is welcoming, stylish, and ultra modern."
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-brandBorder/60 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brandBlue text-white font-bebas text-xl flex items-center justify-center">CR</div>
+                        <div>
+                            <div class="font-bebas text-lg text-white leading-none">CARLOS R.</div>
+                            <div class="text-[10px] text-gray-400 font-mono">Manhattan, NYC • Verified Client</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: LOCATION, HOURS & LOUNGE AMENITIES -->
+    <section id="location" class="py-20 bg-brandDark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brandBlue font-mono text-xs uppercase tracking-widest font-bold">// FIND US IN SOHO</span>
+                    <h2 class="font-bebas text-5xl sm:text-6xl tracking-tight uppercase">
+                        THE SHOP & <span class="text-brandYellow">LOUNGE</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Located right in the heart of SoHo, Manhattan. Stop by for a fresh cut, play a round of NBA 2K on our PS5 lounge setup, or enjoy a complimentary cold beverage.
+                    </p>
+
+                    <!-- Location details -->
+                    <div class="space-y-4 font-mono text-xs pt-2">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brandYellow text-base mt-0.5"></i>
+                            <div>
+                                <span class="text-white font-bold block">742 BROADWAY AVE, SOHO</span>
+                                <span class="text-gray-400">NEW YORK, NY 10003</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brandYellow text-base"></i>
+                            <span class="text-white">(212) 555-0199</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brandYellow text-base"></i>
+                            <span class="text-white">BOOKINGS@THECUTCLUB.COM</span>
+                        </div>
+                    </div>
+
+                    <!-- Opening Hours Table -->
+                    <div class="bg-brandCard p-5 border border-brandBorder space-y-2 font-mono text-xs">
+                        <div class="font-bebas text-lg text-brandYellow tracking-wider mb-2 uppercase border-b border-brandBorder pb-1">OPENING HOURS</div>
+                        <div class="flex justify-between text-gray-300">
+                            <span>MONDAY - FRIDAY</span>
+                            <span class="text-white font-bold">9:00 AM - 8:00 PM</span>
+                        </div>
+                        <div class="flex justify-between text-gray-300">
+                            <span>SATURDAY</span>
+                            <span class="text-white font-bold">8:30 AM - 8:00 PM</span>
+                        </div>
+                        <div class="flex justify-between text-gray-300">
+                            <span>SUNDAY</span>
+                            <span class="text-white font-bold">10:00 AM - 6:00 PM</span>
+                        </div>
+                    </div>
+
+                    <!-- Amenities Tags -->
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="bg-brandDark border border-brandBorder text-gray-300 text-[11px] font-mono px-3 py-1 uppercase"><i class="fa-solid fa-mug-hot text-brandYellow"></i> Espresso Bar</span>
+                        <span class="bg-brandDark border border-brandBorder text-gray-300 text-[11px] font-mono px-3 py-1 uppercase"><i class="fa-solid fa-beer-mug-empty text-brandYellow"></i> Craft Beer</span>
+                        <span class="bg-brandDark border border-brandBorder text-gray-300 text-[11px] font-mono px-3 py-1 uppercase"><i class="fa-solid fa-gamepad text-brandYellow"></i> PS5 Gaming</span>
+                        <span class="bg-brandDark border border-brandBorder text-gray-300 text-[11px] font-mono px-3 py-1 uppercase"><i class="fa-solid fa-wifi text-brandYellow"></i> High-Speed Wi-Fi</span>
+                    </div>
+                </div>
+
+                <!-- Map Box -->
+                <div class="lg:col-span-6">
+                    <div class="bg-brandCard p-2 border-2 border-brandBorder relative">
+                        <div class="w-full h-[400px] bg-neutral-900 relative overflow-hidden flex flex-col items-center justify-center text-center p-6 bg-grid-pattern">
+                            <i class="fa-solid fa-map-location-dot text-6xl text-brandBlue mb-4"></i>
+                            <h3 class="font-bebas text-3xl text-white">SOHO, MANHATTAN // NYC</h3>
+                            <p class="text-xs text-gray-400 max-w-sm mt-1">2 blocks south from Washington Square Park. Subway N/R/W/6 trains near Prince St station.</p>
+                            
+                            <a href="https://maps.google.com" target="_blank" class="mt-6 bg-brandYellow text-black font-bebas text-lg px-6 py-2.5 uppercase tracking-wider shadow-sharp-blue hover:bg-white transition-colors">
+                                OPEN IN GOOGLE MAPS
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 8: FOOTER -->
+    <footer class="bg-black border-t border-brandBorder py-12 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-brandBorder">
+                
+                <!-- Col 1: Brand -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-brandBlue text-white p-2 font-bebas text-xl">TC</div>
+                        <span class="font-bebas text-3xl text-white tracking-wider">THE CUT CLUB</span>
+                    </div>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+                        SoHo’s premier urban barbershop experience. Modern streetwear culture meets razor-sharp traditional grooming excellence.
+                    </p>
+                    <div class="flex gap-4 text-xl text-white pt-2">
+                        <a href="#" class="hover:text-brandYellow"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-brandYellow"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="hover:text-brandYellow"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="hover:text-brandYellow"><i class="fa-brands fa-spotify"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="md:col-span-3 space-y-2 text-xs font-mono">
+                    <div class="font-bebas text-lg text-white tracking-wider mb-2">QUICK LINKS</div>
+                    <div><a href="#hero" class="hover:text-brandYellow">Home Page</a></div>
+                    <div><a href="#builder" class="hover:text-brandYellow text-brandYellow">Build Your Cut Lab</a></div>
+                    <div><a href="#services" class="hover:text-brandYellow">Services & Pricing</a></div>
+                    <div><a href="#barbers" class="hover:text-brandYellow">Master Barbers</a></div>
+                    <div><a href="#location" class="hover:text-brandYellow">Location & Hours</a></div>
+                </div>
+
+                <!-- Col 3: VIP Newsletter -->
+                <div class="md:col-span-4 space-y-3">
+                    <div class="font-bebas text-xl text-white tracking-wider">JOIN THE CLUB NEWSLETTER</div>
+                    <p class="text-xs text-gray-400">Get 10% off your first online booking and exclusive invite to lounge events.</p>
+                    
+                    <form onsubmit="handleNewsletter(event)" class="flex gap-2">
+                        <input type="email" required placeholder="Enter your email" class="bg-brandDark border border-brandBorder text-white px-3 py-2 text-xs w-full focus:border-brandYellow focus:outline-none">
+                        <button type="submit" class="bg-brandYellow text-black font-bebas px-4 text-lg uppercase tracking-wider hover:bg-white transition-colors">
+                            JOIN
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Back to Top -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs font-mono gap-4">
+                <div>© 2026 THE CUT CLUB LLC. ALL RIGHTS RESERVED.</div>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-brandYellow hover:underline flex items-center gap-1">
+                    BACK TO TOP <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- SUCCESS BOOKING MODAL -->
+    <div id="booking-success-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="bg-brandCard border-2 border-brandYellow p-8 max-w-md w-full text-center relative shadow-neon-yellow">
+            <div class="w-16 h-16 bg-brandYellow text-black rounded-full flex items-center justify-center text-3xl mx-auto mb-4 font-bold">
+                ✓
+            </div>
+            <h3 class="font-bebas text-4xl text-white tracking-wider mb-2">APPOINTMENT CONFIRMED!</h3>
+            <p class="text-xs text-gray-300 font-mono mb-6 leading-relaxed">
+                Your custom cut has been reserved. A confirmation SMS with details and Google Calendar sync link has been sent to your phone.
+            </p>
+
+            <div class="bg-brandDark p-4 text-left font-mono text-xs space-y-2 mb-6 border border-brandBorder">
+                <div class="flex justify-between"><span class="text-gray-400">Client:</span> <span id="modal-client" class="text-white font-bold">--</span></div>
+                <div class="flex justify-between"><span class="text-gray-400">Barber:</span> <span id="modal-barber" class="text-white font-bold">--</span></div>
+                <div class="flex justify-between"><span class="text-gray-400">Time:</span> <span id="modal-time" class="text-white font-bold">--</span></div>
+                <div class="flex justify-between border-t border-brandBorder pt-2"><span class="text-gray-400">Total:</span> <span id="modal-total" class="text-brandYellow font-bold">--</span></div>
+            </div>
+
+            <button onclick="closeSuccessModal()" class="w-full bg-brandYellow text-black font-bebas text-2xl py-3 uppercase tracking-wider hover:bg-white transition-colors">
+                DONE // SEE YOU AT THE SHOP
+            </button>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // State Management for Interactive Order Builder
+        const state = {
+            haircut: { id: 'skin-fade', name: 'Skin Fade & Taper', price: 45, duration: 30 },
+            beard: { id: 'no-beard', name: 'No Beard Service', price: 0, duration: 0 },
+            addons: [], // Array of { id, name, price, duration }
+            barber: { id: 'any', name: 'First Available Barber' },
+            date: new Date().toISOString().split('T')[0],
+            time: '02:00 PM'
+        };
+
+        // Initialize Page & Event Listeners
+        window.addEventListener('DOMContentLoaded', () => {
+            // Set default date input value to today
+            const dateInput = document.getElementById('booking-date');
+            if (dateInput) {
+                dateInput.value = state.date;
+                dateInput.addEventListener('change', (e) => {
+                    state.date = e.target.value;
+                    updateSummary();
+                });
+            }
+
+            const timeInput = document.getElementById('booking-time');
+            if (timeInput) {
+                timeInput.addEventListener('change', (e) => {
+                    state.time = e.target.value;
+                    updateSummary();
+                });
+            }
+
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                document.querySelectorAll('.mobile-link').forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
+            }
+
+            // Render default summary
+            updateSummary();
+            checkShopStatus();
+        });
+
+        // Check if shop is open based on hour (9AM - 8PM)
+        function checkShopStatus() {
+            const now = new Date();
+            const hour = now.getHours();
+            const badge = document.getElementById('header-status-badge');
+            if (badge) {
+                if (hour >= 9 && hour < 20) {
+                    badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span><span>OPEN NOW</span>`;
+                    badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 border border-green-500/30 bg-green-500/10 text-green-400";
+                } else {
+                    badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-500"></span><span>CLOSED NOW</span>`;
+                    badge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 border border-red-500/30 bg-red-500/10 text-red-400";
+                }
+            }
+        }
+
+        // Haircut Selection
+        function selectHaircut(id, name, price, durationStr) {
+            const duration = parseInt(durationStr);
+            state.haircut = { id, name, price, duration };
+            
+            // UI toggle active border
+            document.querySelectorAll('.haircut-item').forEach(el => {
+                if (el.getAttribute('data-id') === id) {
+                    el.classList.add('border-brandYellow', 'active-selected');
+                    el.classList.remove('border-brandBorder');
+                } else {
+                    el.classList.remove('border-brandYellow', 'active-selected');
+                    el.classList.add('border-brandBorder');
+                }
+            });
+
+            updateSummary();
+        }
+
+        // Preset Haircut from Menu Section click
+        function presetHaircut(id) {
+            const card = document.querySelector(`.haircut-item[data-id="${id}"]`);
+            if (card) {
+                card.click();
+            }
+        }
+
+        // Beard Selection
+        function selectBeard(id, name, price, durationStr) {
+            const duration = parseInt(durationStr);
+            state.beard = { id, name, price, duration };
+
+            document.querySelectorAll('.beard-item').forEach(el => {
+                if (el.getAttribute('data-id') === id) {
+                    el.classList.add('border-brandYellow', 'active-selected');
+                    el.classList.remove('border-brandBorder');
+                } else {
+                    el.classList.remove('border-brandYellow', 'active-selected');
+                    el.classList.add('border-brandBorder');
+                }
+            });
+
+            updateSummary();
+        }
+
+        function presetBeard(id) {
+            const card = document.querySelector(`.beard-item[data-id="${id}"]`);
+            if (card) {
+                card.click();
+            }
+        }
+
+        // Addon Checkbox Toggle
+        function toggleAddon(id, name, price, durationStr, checkbox) {
+            const duration = parseInt(durationStr);
+            if (checkbox.checked) {
+                state.addons.push({ id, name, price, duration });
+            } else {
+                state.addons = state.addons.filter(item => item.id !== id);
+            }
+            updateSummary();
+        }
+
+        // Barber Selection
+        function selectBarber(id, name) {
+            state.barber = { id, name };
+
+            document.querySelectorAll('.barber-item').forEach(el => {
+                if (el.getAttribute('data-id') === id) {
+                    el.classList.add('border-brandYellow', 'active-selected');
+                    el.classList.remove('border-brandBorder');
+                } else {
+                    el.classList.remove('border-brandYellow', 'active-selected');
+                    el.classList.add('border-brandBorder');
+                }
+            });
+
+            updateSummary();
+        }
+
+        // Update Dynamic Live Summary Card
+        function updateSummary() {
+            const summaryList = document.getElementById('summary-list');
+            const summaryPrice = document.getElementById('summary-price');
+            const summaryDuration = document.getElementById('summary-duration');
+            const summaryBarber = document.getElementById('summary-barber');
+            const summaryDatetime = document.getElementById('summary-datetime');
+
+            let totalPrice = state.haircut.price + state.beard.price;
+            let totalDuration = state.haircut.duration + state.beard.duration;
+
+            let html = `
+                <div class="flex justify-between text-white">
+                    <span>• ${state.haircut.name}</span>
+                    <span class="text-brandYellow">$${state.haircut.price}</span>
+                </div>
+            `;
+
+            if (state.beard.price > 0 || state.beard.id !== 'no-beard') {
+                html += `
+                    <div class="flex justify-between text-white">
+                        <span>• ${state.beard.name}</span>
+                        <span class="text-brandYellow">+$${state.beard.price}</span>
+                    </div>
+                `;
+            }
+
+            state.addons.forEach(addon => {
+                totalPrice += addon.price;
+                totalDuration += addon.duration;
+                html += `
+                    <div class="flex justify-between text-gray-300">
+                        <span>• ${addon.name}</span>
+                        <span class="text-brandYellow">+$${addon.price}</span>
+                    </div>
+                `;
+            });
+
+            if (summaryList) summaryList.innerHTML = html;
+            if (summaryPrice) summaryPrice.textContent = `$${totalPrice}`;
+            if (summaryDuration) summaryDuration.textContent = `${totalDuration} mins`;
+            if (summaryBarber) summaryBarber.textContent = state.barber.name;
+            
+            // Format Date
+            const formattedDate = state.date ? new Date(state.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Today';
+            if (summaryDatetime) summaryDatetime.textContent = `${formattedDate} @ ${state.time}`;
+        }
+
+        // Handle Booking Submission
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const clientName = document.getElementById('client-name').value;
+            const clientPhone = document.getElementById('client-phone').value;
+
+            if (!clientName || !clientPhone) {
+                alert('Please fill out your name and phone number.');
+                return;
+            }
+
+            let totalPrice = state.haircut.price + state.beard.price;
+            state.addons.forEach(a => totalPrice += a.price);
+
+            // Populate Modal
+            document.getElementById('modal-client').textContent = clientName;
+            document.getElementById('modal-barber').textContent = state.barber.name;
+            document.getElementById('modal-time').textContent = `${state.date} @ ${state.time}`;
+            document.getElementById('modal-total').textContent = `$${totalPrice}`;
+
+            // Show Modal
+            document.getElementById('booking-success-modal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('booking-success-modal').classList.add('hidden');
+        }
+
+        // Filter Menu Services
+        function filterMenu(category) {
+            const cards = document.querySelectorAll('.menu-card');
+            const tabs = document.querySelectorAll('.menu-tab');
+
+            tabs.forEach(tab => {
+                if (tab.getAttribute('data-tab') === category) {
+                    tab.className = "menu-tab bg-brandYellow text-black px-4 py-1.5 uppercase transition-all";
+                } else {
+                    tab.className = "menu-tab bg-brandCard border border-brandBorder text-gray-300 hover:text-white px-4 py-1.5 uppercase transition-all";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox Gallery
+        function openLightbox(imgSrc, caption) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-caption').textContent = caption;
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        // Newsletter Form
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert('Welcome to the Club! Check your inbox for your 10% off code.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
